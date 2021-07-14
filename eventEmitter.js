@@ -15,6 +15,7 @@ console.log( `New user ${name}`);
 users.push(`${name}`);
 });
 
+
 logger.on('getUsers', () => {
   for(let user of users){
 console.log(`Logged user  ${ '\n'+user}`);
@@ -22,7 +23,11 @@ console.log(`Logged user  ${ '\n'+user}`);
 });
 logger.on('getMessage', () => {
   console.log(...msgs);
-})
+});
+
+
+
+
 
 logger.emit('message', "Hello World!");
 logger.emit('message','Hello Node');
