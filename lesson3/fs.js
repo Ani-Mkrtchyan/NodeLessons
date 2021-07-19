@@ -1,16 +1,34 @@
-const readline = require("readline");
-const fs = require("fs");
+// const readline = require("readline");
+// const fs = require("fs");
 
-const path = "./addresses.csv";
+// const path = "./addresses.csv";
 
-const rl = readline.createInterface({
-  input: fs.createReadStream(path),
+// const rl = readline.createInterface({
+//   input: fs.createReadStream(path),
   
+// });
+
+// rl.on("line", function (input) {
+//     console.log(input);
+//   });
+const readline = require('readline');
+const fs =require('fs');
+const path =require('path');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-rl.on("line", function (input) {
-    console.log(input);
+rl.question('What do you think of Node.js? ', (path) => {
+ 
+  fs.readFile(path,"utf8",(err,data)=>{
+    if(err){
+      throw err;
+    }
+    console.log(data);
   });
+  rl.close();
+});
 
 const  csvtojson = require('csvtojson');
 const csvFilePath ="addresses.csv";
